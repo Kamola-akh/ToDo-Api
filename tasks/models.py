@@ -1,5 +1,5 @@
 from django.db import models
-from Users.models import Users
+from users.models import Users
 
 
 class Task(models.Model):
