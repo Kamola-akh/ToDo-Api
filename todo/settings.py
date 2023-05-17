@@ -36,6 +36,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    "dj_rest_auth",
+    "rest_framework.authtoken",
     'drf_yasg',
     'rest_framework',
     'corsheaders',
@@ -48,6 +50,10 @@ REST_FRAMEWORK = {
         "rest_framework.permissions.AllowAny",
 
     ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.SessionAuthentication",
+        "rest_framework.authentication.TokenAuthentication",
+],
 
 }
 MIDDLEWARE = [
@@ -114,7 +120,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'Asia,Tashkent'
+TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
@@ -129,7 +135,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-# AUTH_USER_MODEL = "users.Users"
+AUTH_USER_MODEL = "users.Users"
 
 CORS_ALLOWED_ORIGINS = (
     "http://localhost:2002",
