@@ -35,7 +35,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sites",  # new
 
+    "allauth",  # new
+    "allauth.account",  # new
+    "allauth.socialaccount",  # new
+    "dj_rest_auth.registration",  # new
     "dj_rest_auth",
     "rest_framework.authtoken",
     'drf_yasg',
@@ -80,12 +85,16 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                "django.template.context_processors.request",  # new
             ],
         },
     },
 ]
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # new
 
 WSGI_APPLICATION = 'todo.wsgi.application'
+
+SITE_ID = 1 # new
 
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
